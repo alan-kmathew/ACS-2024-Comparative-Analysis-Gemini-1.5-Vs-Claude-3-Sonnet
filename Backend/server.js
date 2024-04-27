@@ -16,23 +16,9 @@ app.post('/sendMessage', async (req, res) => {
 });
 
 app.post('/createThread', async (req, res) => {
-  try {
-    const response = await createNewThread();
-    console.log('Response:', response); // log the response
-    res.json(response);
-  } catch (error) {
-    if (error.name === 'RateLimitError') {
-      console.error('Rate limit exceeded:', error);
-      res.status(429).json({
-        error: 'Rate limit exceeded. Please try again later.'
-      });
-    } else {
-      console.error('Error in creating new thread:', error);
-      res.status(500).json({
-        error: 'An error occurred while creating a new thread.'
-      });
-    }
-  }
+  const response = await createNewThread();
+  console.log('Response:', response); // log the response
+  res.json(response);
 });
 
 app.listen(5008, () => {
