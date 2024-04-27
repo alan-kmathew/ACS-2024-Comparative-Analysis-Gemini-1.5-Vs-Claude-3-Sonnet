@@ -1,25 +1,40 @@
-import Anthropic from '@anthropic-ai/sdk'
-import dotenv from 'dotenv';
-dotenv.config();
-// Create Anthropic API client
-const anthropic = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY
-})
+import express from 'express';
+import cors from 'cors';
+import { sendMessageToAssistant, createNewThread } from './Anthropic.js';
 
-// Request the Anthropic API for the response
-async function start() {
-  const messages = [{ role: 'user', content: 'Hello' }]
 
-  const response = await anthropic.messages.create({
-    model: 'claude-3-opus-20240229',
-    messages: messages,
-    max_tokens: 1024,
-    temperature: 1,
-    top_k: 1,
-    top_p: 1
-  })
+const app = express();
+app.use(cors());
+app.use(express.json());
 
-  console.log(response.content);
-}
+app.post('/sendMessage', async (req, res) => {
+  const { message } = req.body;
+  console.log('Message:', message); // log the message
+  const response = await sendMessageToAssistant(message);
+  console.log('Response:', response); // log the response
+  res.json(response);
+});
 
-start()
+app.post('/createThread', async (req, res) => {
+  try {
+    const response = await createNewThread();
+    console.log('Response:', response); // log the response
+    res.json(response);
+  } catch (error) {
+    if (error.name === 'RateLimitError') {
+      console.error('Rate limit exceeded:', error);
+      res.status(429).json({
+        error: 'Rate limit exceeded. Please try again later.'
+      });
+    } else {
+      console.error('Error in creating new thread:', error);
+      res.status(500).json({
+        error: 'An error occurred while creating a new thread.'
+      });
+    }
+  }
+});
+
+app.listen(5008, () => {
+  console.log('Server is running on port 5000');
+});
