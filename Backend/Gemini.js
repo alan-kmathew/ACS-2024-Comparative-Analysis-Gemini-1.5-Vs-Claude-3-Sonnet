@@ -1,6 +1,5 @@
 import { GoogleGenerativeAI, HarmBlockThreshold, HarmCategory} from '@google/generative-ai';
 import dotenv from 'dotenv';
-import * as fs from 'fs';
 dotenv.config();
 
 const MODEL_NAME = 'gemini-1.5-pro-latest';
