@@ -1,11 +1,23 @@
 import React, {useState} from 'react';
-import Dashboard from './Dashboard';
+import GeminiUI from './GeminiUI';
+import AnthropicUI from './AnthropicUI';
+import './App.css';
 
 function App() {
-  const [messages, setMessages] = useState([]); // Initialize messages as an empty array
+  const [anthropicMessages, setAnthropicMessages] = useState([]);
+  const [geminiMessages, setGeminiMessages] = useState([]);
 
   return (
-    <Dashboard messages={messages} setMessages={setMessages} />
+    <div className="dashboard-Header">
+      <div className="dashboard-Header_text">Comparative Analysis: Gemini 1.5 Vs Claude 3 Sonnet</div>
+    <div className="dashboard-container">
+      <GeminiUI messages={geminiMessages} setMessages={setGeminiMessages} />
+      <AnthropicUI messages={anthropicMessages} setMessages={setAnthropicMessages} />
+    </div>
+    </div>
   );
 }
+
 export default App;
+
+

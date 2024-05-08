@@ -1,7 +1,13 @@
+.dashboard-container {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
 .chat-container {
     display: flex;
     flex-direction: column;
-    max-width: 785px;
+    width: 700px;
     height: 84vh;
     margin: 20px auto 20px; 
     background-color: #eeeeee;
@@ -71,24 +77,7 @@
   .message-content.ai {
     background-color: #979797;
   }
-  
-  .typing-indicator {
-    display: inline-block;
-    overflow: hidden;
-    border-right: 0.1em solid #eeeeee;
-    white-space: nowrap;
-    animation: typing 1s steps(10, end), blink-caret 0.75s step-end infinite;
-  }
-  
-  @keyframes typing {
-    from { width: 0; }
-    to { width: 100%; }
-  }
-  
-  @keyframes blink-caret {
-    50% { border-color: transparent; }
-  }
-  
+
   
   .chat-input-area {
     display: flex;
@@ -97,19 +86,7 @@
   
   }
   
-  .refresh-button {
-    padding: 7px 12px;
-    background-color: #eeeeee;
-    color: #000000;
-    border: 1px solid #000000;
-    border-radius: 13px;
-    cursor: pointer;
-  }
-  
-  .refresh-button:hover {
-    background-color: #000000;
-    color: #eeeeee;
-  }
+
   .chat-input {
     flex-grow: 1;
     padding: 10px;
@@ -143,3 +120,22 @@
     color: #eeeeee;
   }
   
+  .file-upload-button {
+    padding: 7px 12px;
+    background-color: #eeeeee;
+    color: #000000;
+    border: 1px solid #000000;
+    border-radius: 13px;
+    cursor: pointer;
+  }
+  
+  .file-upload-button.file-uploaded {
+    background-color: #000000;
+    color: #eeeeee;
+  }
+
+  
+  .message-content.user img {
+    max-width: 100%;
+    height: auto;
+  }
