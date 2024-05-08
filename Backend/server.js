@@ -7,7 +7,7 @@ import { sendMessageToAssistant as sendGeminiMessage } from './Gemini.js';
 
 const upload = multer();
 const app = express();
-app.use(cors());
+app.use(cors({ origin: '*' }));
 app.use(express.json());
 
 app.post('/anthropic/sendMessage', upload.fields([{ name: 'message', maxCount: 1 }, { name: 'file', maxCount: 1 }]), async (req, res) => {
