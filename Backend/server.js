@@ -32,6 +32,6 @@ app.post('/gemini/sendMessage', upload.fields([{ name: 'message', maxCount: 1 },
 });
 
 
-app.listen(5008, () => {
-  console.log('Server is running on port 5000');
+app.listen(8080, () => {
+  console.log('Server is running on port 8080');
 });
