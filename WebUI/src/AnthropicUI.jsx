@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faPaperclip, faCircleArrowRight } from '@fortawesome/free-solid-svg-icons';
 import ReactMarkdown from 'react-markdown';
 
-const BASE_URL = 'http://localhost:5008';
+const BASE_URL = 'https://acs-sose-2024-alan-k-mathew.ue.r.appspot.com';
 
 const sendMessageToAssistant = async (message, file) => {
   const formData = new FormData();
@@ -42,7 +42,6 @@ const AnthropicUI = ({ messages, setMessages }) => {
     setIsTyping(true);
     setIsFileUploadedAntropic(false);
 
-  
     try {
       const response = await sendMessageToAssistant(inputValue, selectedFile);
       response.content.forEach(item => {
@@ -117,17 +116,17 @@ const AnthropicUI = ({ messages, setMessages }) => {
     style={{ display: 'none' }}
     onChange={anthropicFileUpload}
   />
-</label>
-<textarea
-  className="chat-input"
-  value={inputValue}
-  onChange={(e) => setInputValue(e.target.value)}
-  onKeyDown={handleKeyDown}
-  placeholder="Enter a prompt here"
-/>
-        <button className="send-button" onClick={sendMessage}>
-          <FontAwesomeIcon icon={faCircleArrowRight} />
-        </button>
+  </label>
+  <textarea
+   className="chat-input"
+   value={inputValue}
+   onChange={(e) => setInputValue(e.target.value)}
+   onKeyDown={handleKeyDown}
+   placeholder="Enter a prompt here"
+  />
+   <button className="send-button" onClick={sendMessage}>
+     <FontAwesomeIcon icon={faCircleArrowRight} />
+   </button>
       </div>
     </div>
   );

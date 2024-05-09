@@ -4,7 +4,6 @@ import multer from 'multer';
 import { sendMessageToAssistant as sendAnthrowMessage } from './Anthropic.js';
 import { sendMessageToAssistant as sendGeminiMessage } from './Gemini.js';
 
-
 const upload = multer();
 const app = express();
 app.use(cors({ origin: '*' }));
@@ -30,8 +29,6 @@ app.post('/anthropic/sendMessage', upload.fields([{ name: 'message', maxCount: 1
   console.log('Response:', response); // log the response
   res.json(response);
 });
-
-
 
 
 app.listen(8080, () => {

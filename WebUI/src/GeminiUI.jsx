@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faPaperclip, faCircleArrowRight } from '@fortawesome/free-solid-svg-icons';
 import ReactMarkdown from 'react-markdown';
 
-const BASE_URL = 'http://localhost:5008';
+const BASE_URL = 'https://acs-sose-2024-alan-k-mathew.ue.r.appspot.com';
 
 const GeminiUI = ({ messages, setMessages }) => {
   const [inputValue, setInputValue] = useState('');
@@ -16,7 +16,6 @@ const handleFileChange = (event) => {
   setSelectedFile(event.target.files[0]);
   setIsFileUploaded(!!event.target.files[0]);
 };
-
 
   const sendMessage = async (event) => {
     event.preventDefault();

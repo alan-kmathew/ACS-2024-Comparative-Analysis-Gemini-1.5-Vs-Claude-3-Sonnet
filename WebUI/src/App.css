@@ -1,11 +1,9 @@
 .dashboard-Header {
-    /* background-color: #293844; */
     background-color: #758594;
     align-content: center;
     padding: 10px;
     height: 100vh;
     width: 100%;
-    /* text-align: center; */
 }
 .dashboard-Header_text {
     text-align: center;
