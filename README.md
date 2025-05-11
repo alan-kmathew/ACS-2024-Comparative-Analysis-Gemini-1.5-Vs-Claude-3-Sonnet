@@ -1,4 +1,4 @@
-# ACS: Comparative Analysis
+# Comparative Analysis
 
 This project provides a comparative analysis of Google Gemini 1.5 and Anthropic Claude 3 Sonnet. The analysis includes backend services and a web-based user interface for visualization.
 
